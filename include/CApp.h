@@ -2,6 +2,9 @@
     #define _CAPP_H_
 
 #include <SDL.h>
+#include <SDL_image.h>
+#include <vector>
+#include <cmath>
 
 #include "CTexture.h"
 #include "Ball.h"
@@ -20,11 +23,19 @@ private:
     bool    running;
     SDL_Renderer* Main_Renderer;
     SDL_Window* window;
+
+
+
 public:
     CApp();
 
     int OnExecute();
+
+        static SDL_Rect screen;
+
 public:
+     std::vector<class Ball> BallAry;
+
 
     bool OnInit();
 
@@ -37,5 +48,6 @@ public:
 
     void OnCleanup();
 };
+
 
 #endif

@@ -347,43 +347,54 @@
 1462478711 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\test sdl\capp_onevent.cpp
 	"CApp.h"
 
-1462480522 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\ball.h
+1462641079 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\ball.h
 	"CApp.h"
+	"CTexture.h"
 	<iostream>
 
-1462481218 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\ball.cpp
+1462641580 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\ball.cpp
 	"Ball.h"
 
-1462479880 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\capp.h
+1462637389 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\capp.h
 	<SDL.h>
+	<SDL_image.h>
+	<vector>
+	<cmath>
 	"CTexture.h"
 	"Ball.h"
 
-1462382165 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\ctexture.h
+1462629232 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\ctexture.h
 	<SDL.h>
+	<SDL_image.h>
 
-1462382430 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp.cpp
+1462636301 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp.cpp
 	"CApp.h"
 	<iostream>
 
-1462382598 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_oncleanup.cpp
+1462628837 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_oncleanup.cpp
 	"CApp.h"
 
-1462478711 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onevent.cpp
+1462636317 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onevent.cpp
 	"CApp.h"
 
-1462481266 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_oninit.cpp
+1462640163 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_oninit.cpp
 	"CApp.h"
 
-1462380113 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onloop.cpp
+1462641636 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onloop.cpp
 	"CApp.h"
 
-1462478588 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onrender.cpp
+1462637389 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onrender.cpp
 	"CApp.h"
 	<stdio.h>
 
-1462382712 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\ctexture.cpp
+1462629215 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\ctexture.cpp
 	"CTexture.h"
 	<iostream>
 	<stdio.h>
+
+1451803973 c:\mingw_dev_lib\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
 

@@ -16,14 +16,19 @@ CApp::CApp(){
 *
 *@return 0 if succesfull, -1 if not
 */
+
 int CApp::OnExecute(){
     if(OnInit() == false){
         return -1;
     }
 
     SDL_Event Event;
+    Ball ball(Main_Renderer);
+
+
 
     while(running){
+        OnKeyState();
         while (SDL_PollEvent(&Event)){
             OnEvent(Event);
         }

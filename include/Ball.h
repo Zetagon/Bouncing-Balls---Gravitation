@@ -7,15 +7,28 @@
 class Ball
 {
     public:
-        Ball();
+        Ball(SDL_Renderer* sdlRenderer);
 
+        SDL_Texture* Tex_Ball;
 
-
-    private:
         double velocityX;
         double velocityY;
-        SDL_Point coordinate;
-        SDL_Texture* Tex_Ball;
+        double bounceCoefficient;
+        double x;
+        double y;
+
+        void RenderBall(SDL_Renderer* sdlRenderer);
+        void ApplyForce(double forceX,double forceY);
+        void ApplyGravity();
+        void UpdateCoordinates();
+        void OnBounce();
+    private:
+
+        double Gravitational_Acceleration;
+        int mass;
+        int Width;
+        int Height;
+
 };
 
 #endif // BALL_H

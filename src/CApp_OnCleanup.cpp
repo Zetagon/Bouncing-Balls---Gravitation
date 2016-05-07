@@ -9,5 +9,6 @@
 void CApp::OnCleanup(){
     SDL_DestroyRenderer(Main_Renderer);
     SDL_DestroyWindow(window);
+    IMG_Quit();
     SDL_Quit();
 }

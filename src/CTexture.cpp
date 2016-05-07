@@ -30,6 +30,21 @@ SDL_Texture* CTexture::OnLoad(char* File, SDL_Renderer* sdlRenderer) {
     }
     return Texture_Return;
 }
+SDL_Texture* CTexture::OnLoadImage(char* File, SDL_Renderer* sdlRenderer) {
+    SDL_Surface* Surf_Temp = NULL;
+    SDL_Texture* Texture_Return = NULL;
+
+    if((Surf_Temp = IMG_Load(File))==NULL){
+        std::cout << "Something went wrong!";
+        return NULL;
+    }
+
+    Texture_Return = SDL_CreateTextureFromSurface(sdlRenderer, Surf_Temp);
+    if(Texture_Return == NULL){
+        printf("Error!");
+    }
+    return Texture_Return;
+}
 /**
 *
 *@param sdlRenderer the SDL_Renderer which Tex_Src is copied to
