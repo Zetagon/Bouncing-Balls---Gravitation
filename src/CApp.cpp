@@ -6,9 +6,12 @@
 *
 *note: the first two lines are necessary
 */
+double CApp::SlowMotionValue = 1;
 CApp::CApp(){
     Main_Renderer = NULL;
     running = true;
+
+
 }
 /**
 *
@@ -23,7 +26,6 @@ int CApp::OnExecute(){
     }
 
     SDL_Event Event;
-    Ball ball(Main_Renderer);
 
 
 
@@ -44,4 +46,5 @@ int main(int argc, char* argv[]){
     CApp theApp;
 
     return theApp.OnExecute();
+
 }

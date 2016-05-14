@@ -34,19 +34,23 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 			<Add directory="C:/Users/leooka1ros/Documents/SDL/include" />
-			<Add directory="C:/mingw_dev_lib/include/SDL2" />
+			<Add directory="C:/mingw_dev_lib/SDL_Image/include/SDL2" />
+			<Add directory="C:/mingw_dev_lib/SDL2_ttf-2.0.14/i686-w64-mingw32/include/SDL2" />
 		</Compiler>
 		<Linker>
-			<Add option="-lSDL2_image" />
+			<Add option="-lSDL2_image -lSDL2_ttf" />
 			<Add library="mingw32" />
 			<Add library="SDL2main" />
 			<Add library="SDL2" />
 			<Add directory="C:/Users/leooka1ros/Documents/SDL/lib/x86" />
-			<Add directory="C:/mingw_dev_lib/lib" />
+			<Add directory="C:/mingw_dev_lib/SDL_Image/lib" />
+			<Add directory="C:/mingw_dev_lib/SDL2_ttf-2.0.14/i686-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="include/Ball.h" />
 		<Unit filename="include/CApp.h" />
 		<Unit filename="include/CTexture.h" />
+		<Unit filename="include/Circle.h" />
+		<Unit filename="include/Timer.h" />
 		<Unit filename="src/Ball.cpp" />
 		<Unit filename="src/CApp.cpp" />
 		<Unit filename="src/CApp_OnCleanup.cpp" />
@@ -55,6 +59,9 @@
 		<Unit filename="src/CApp_OnLoop.cpp" />
 		<Unit filename="src/CApp_OnRender.cpp" />
 		<Unit filename="src/CTexture.cpp" />
+		<Unit filename="src/Circle.cpp" />
+		<Unit filename="src/DetectCircleCollision.cpp" />
+		<Unit filename="src/Timer.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

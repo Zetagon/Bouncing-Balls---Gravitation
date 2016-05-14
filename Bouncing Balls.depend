@@ -347,40 +347,43 @@
 1462478711 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\test sdl\capp_onevent.cpp
 	"CApp.h"
 
-1462641079 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\ball.h
+1463131894 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\ball.h
 	"CApp.h"
 	"CTexture.h"
 	<iostream>
 
-1462641580 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\ball.cpp
+1463171124 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\ball.cpp
 	"Ball.h"
 
-1462637389 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\capp.h
+1463165425 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\capp.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
-	<cmath>
+	<cstdlib>
+	<ctime>
 	"CTexture.h"
 	"Ball.h"
+	"Circle.h"
+	"Timer.h"
 
 1462629232 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\ctexture.h
 	<SDL.h>
 	<SDL_image.h>
 
-1462636301 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp.cpp
+1463170585 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp.cpp
 	"CApp.h"
 	<iostream>
 
 1462628837 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_oncleanup.cpp
 	"CApp.h"
 
-1462636317 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onevent.cpp
+1463170894 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onevent.cpp
 	"CApp.h"
 
-1462640163 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_oninit.cpp
+1463132203 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_oninit.cpp
 	"CApp.h"
 
-1462641636 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onloop.cpp
+1463166913 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onloop.cpp
 	"CApp.h"
 
 1462637389 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\capp_onrender.cpp
@@ -397,4 +400,26 @@
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
+
+1462906582 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\circle.cpp
+	"Circle.h"
+
+1462908170 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\circle.h
+
+1463132372 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\detectcirclecollision.cpp
+	"CApp.h"
+
+1451803973 c:\mingw_dev_lib\sdl_image\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1463166891 source:c:\users\leooka1ros\documents\c++projects\bouncing balls\src\timer.cpp
+	"Timer.h"
+
+1463165504 c:\users\leooka1ros\documents\c++projects\bouncing balls\include\timer.h
+	<stdint.h>
+	<cmath>
+	<SDL.h>
 

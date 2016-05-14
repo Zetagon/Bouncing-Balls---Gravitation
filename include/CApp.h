@@ -4,10 +4,14 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <vector>
-#include <cmath>
+//#include <cmath>
+#include <cstdlib>
+#include <ctime>
 
 #include "CTexture.h"
 #include "Ball.h"
+#include "Circle.h"
+#include "Timer.h"
 /**
 *
 *This is a template. Use it to make games with SDL
@@ -23,6 +27,7 @@ private:
     bool    running;
     SDL_Renderer* Main_Renderer;
     SDL_Window* window;
+    Timer fpsTimer;
 
 
 
@@ -32,6 +37,7 @@ public:
     int OnExecute();
 
         static SDL_Rect screen;
+        static double SlowMotionValue;
 
 public:
      std::vector<class Ball> BallAry;
@@ -47,7 +53,9 @@ public:
     void OnRender();
 
     void OnCleanup();
-};
 
+    bool DetectCircleCollision(Circle c1, Circle c2);
+
+};
 
 #endif

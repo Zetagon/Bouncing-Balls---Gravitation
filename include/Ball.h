@@ -20,6 +20,7 @@ class Ball
         void RenderBall(SDL_Renderer* sdlRenderer);
         void ApplyForce(double forceX,double forceY);
         void ApplyGravity();
+        void ApplyFriction();
         void UpdateCoordinates();
         void OnBounce();
     private:

@@ -2,16 +2,20 @@
 
 Ball::Ball(SDL_Renderer* sdlRenderer )
 {
+//    double randvelocityX = rand(void) %200 / 100.0;
+//    double randvelocityY = rand(void) %200 / 100.0;
+
+
     int tempX;
     int tempY;
 
     Width = 100;
     Height = 100;
     mass = 10;
-    velocityX = 1;
-    velocityY = -2;
+    velocityX = 2; //(rand() %300 -150) / 100.0;
+    velocityY =  -1;//(rand() %300 - 300) / 100.0;
     Gravitational_Acceleration = 0.005;
-    bounceCoefficient = 0.9;
+    bounceCoefficient = 1;
     SDL_GetMouseState( &tempX, &tempY );
     x = tempX;
     y = tempY;
@@ -31,8 +35,8 @@ void Ball::RenderBall(SDL_Renderer* sdlRenderer){
 void Ball::ApplyForce(double forceX,double forceY){
     double accX = forceX/mass;
     double accY = forceY/mass;
-    velocityX += accX;
-    velocityY += accY;
+    velocityX += accX * CApp::SlowMotionValue;
+    velocityY += accY * CApp::SlowMotionValue;
 
 }
 
@@ -41,8 +45,22 @@ void Ball::ApplyGravity(){
 }
 
 void Ball::UpdateCoordinates(){
-    x += velocityX;
-    y += velocityY;
+    x += velocityX * CApp::SlowMotionValue;
+    y += velocityY * CApp::SlowMotionValue;
+}
+
+void Ball::ApplyFriction(){
+//    if (y == CApp::screen.h - 100){
+//        if(velocityX < 0){
+//            ApplyForce(10,0);
+//        }
+//        if(velocityY > 0){
+//            ApplyForce(-10,0);
+//        }
+//    }
+    if (y >= CApp::screen.h - 101){
+        velocityX *= 0.99;
+    }
 }
 
 void Ball::OnBounce(){
@@ -57,5 +75,9 @@ void Ball::OnBounce(){
     if (x <= 0){
         velocityX *= -bounceCoefficient;
         x = 0;
+    }
+    if (y <= 0){
+        velocityY *= -bounceCoefficient;
+        y = 0;
     }
 }

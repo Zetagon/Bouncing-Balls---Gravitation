@@ -1,4 +1,5 @@
 #include "CApp.h"
+
 /**
 *
 *Initialize SDL, SDL_window, SDL_renderer,images etc.
@@ -13,6 +14,7 @@ bool CApp::OnInit() {
     }
     IMG_Init(IMG_INIT_JPG);
     IMG_Init(IMG_INIT_PNG);
+    srand(time(NULL));
 
 
     if(SDL_GetDisplayBounds(0,&screen) != 0){
@@ -35,6 +37,7 @@ bool CApp::OnInit() {
 *       return false;
 *    }
 */
+
     return true;
 }
 
