@@ -53,6 +53,7 @@
 		<Unit filename="include/Timer.h" />
 		<Unit filename="src/Ball.cpp" />
 		<Unit filename="src/CApp.cpp" />
+		<Unit filename="src/CApp_GravitationBetweenObj.cpp" />
 		<Unit filename="src/CApp_OnCleanup.cpp" />
 		<Unit filename="src/CApp_OnEvent.cpp" />
 		<Unit filename="src/CApp_OnInit.cpp" />

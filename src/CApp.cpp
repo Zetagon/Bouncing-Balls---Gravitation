@@ -10,6 +10,7 @@ double CApp::SlowMotionValue = 1;
 CApp::CApp(){
     Main_Renderer = NULL;
     running = true;
+    started = false;
 
 
 }
@@ -34,12 +35,19 @@ int CApp::OnExecute(){
         while (SDL_PollEvent(&Event)){
             OnEvent(Event);
         }
-        OnLoop();
-        OnRender();
+        if(started){
+            OnLoop();
+        }
+            OnRender();
     }
     OnCleanup();
 
     return 0;
+}
+
+double CApp::CalculateDistance(double x, double y, double x1, double y1){
+    //Pythagoras theorem to calculate the distance
+    return sqrt(pow((x - x1), 2)+ pow((y - y1), 2));
 }
 
 int main(int argc, char* argv[]){

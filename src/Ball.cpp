@@ -1,6 +1,6 @@
 #include "Ball.h"
 
-Ball::Ball(SDL_Renderer* sdlRenderer )
+Ball::Ball(SDL_Renderer* sdlRenderer, char* File, double vx, double vy, int m)
 {
 //    double randvelocityX = rand(void) %200 / 100.0;
 //    double randvelocityY = rand(void) %200 / 100.0;
@@ -9,20 +9,20 @@ Ball::Ball(SDL_Renderer* sdlRenderer )
     int tempX;
     int tempY;
 
-    Width = 100;
-    Height = 100;
-    mass = 10;
-    velocityX = 2; //(rand() %300 -150) / 100.0;
-    velocityY =  -1;//(rand() %300 - 300) / 100.0;
+    Width = 50;
+    Height = 50;
+    mass = m;
+    velocityX = vx; //(rand() %300 -150) / 100.0;
+    velocityY =  vy;//(rand() %300 - 300) / 100.0;
     Gravitational_Acceleration = 0.005;
-    bounceCoefficient = 1;
+    bounceCoefficient = 0.99;
     SDL_GetMouseState( &tempX, &tempY );
-    x = tempX;
-    y = tempY;
+    x =   tempX;
+    y =   tempY;
     x -= Width/2;
     y -= Height/2;
 
-    Tex_Ball = CTexture::OnLoadImage("Ball2.png", sdlRenderer);
+    Tex_Ball = CTexture::OnLoadImage(File, sdlRenderer);
 
 }
 

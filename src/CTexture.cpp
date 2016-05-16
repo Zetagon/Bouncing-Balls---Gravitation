@@ -98,7 +98,7 @@ bool CTexture::OnDraw( SDL_Renderer* sdlRenderer,  SDL_Texture* Tex_Src,SDL_Rect
     }
 
     if (SDL_RenderCopy(sdlRenderer,Tex_Src, &SrcR, &DestR )!=0){
-        printf("REndercopy is not working! The error is: %s \n",SDL_GetError());
+        printf("Rendercopy is not working! The error is: %s \n",SDL_GetError());
     }
 
     return true;

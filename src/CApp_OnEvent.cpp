@@ -16,10 +16,19 @@ case SDL_MOUSEBUTTONDOWN:
         switch (Event.button.button)
         {
             case SDL_BUTTON_LEFT:
+                {
               //for(int i = 0; i < 10; i++){
-                    Ball BallTemp(Main_Renderer);
-                    BallAry.push_back(BallTemp);
-             //  }
+                    Ball tempBall(Main_Renderer, "Ball2.png",0, 1, 10);
+                    BallAry.push_back(tempBall);
+              // }
+            break;
+                }
+            case SDL_BUTTON_RIGHT:
+                {
+            Ball negBall(Main_Renderer, "Ball2.png",0, -1, -10);
+            BallAry.push_back(negBall);
+                }
+
             break;
         }
 break;
@@ -53,6 +62,9 @@ void CApp::OnKeyState() {
         for(int i = 0   ; i < BallAry.size(); i++){
                     BallAry[i].ApplyForce(0,0.01);
             }
+    }
+    if(keystates[SDL_SCANCODE_RETURN]){
+        started = true;
     }
     if (keystates[SDL_SCANCODE_SPACE]){
         SlowMotionValue = 0.1;

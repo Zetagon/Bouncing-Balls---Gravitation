@@ -25,9 +25,11 @@
 class CApp {
 private:
     bool    running;
+    bool    started;
     SDL_Renderer* Main_Renderer;
     SDL_Window* window;
     Timer fpsTimer;
+    const double GRAVITATION_CONSTANT = 0.00001;
 
 
 
@@ -55,6 +57,10 @@ public:
     void OnCleanup();
 
     bool DetectCircleCollision(Circle c1, Circle c2);
+
+    double CalculateDistance(double x, double y, double x1, double y1);
+
+    int GravitationBetweenObj(Ball& ballOne,  Ball& ballTwo);
 
 };
 
