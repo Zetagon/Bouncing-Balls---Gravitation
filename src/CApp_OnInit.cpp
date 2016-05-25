@@ -29,8 +29,14 @@ bool CApp::OnInit() {
     }
     Main_Renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-    Ball temp(Main_Renderer,"ball2.png",0,0,90000000);
+
+    Ball temp(Main_Renderer,"ball2.png");
+    temp.mass = 9000;
+    temp.x = 700;
+    temp.y = 400;
+
     BallAry.push_back(temp);
+
 
 /**
 * Use this way to load an image onto a texture

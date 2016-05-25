@@ -7,7 +7,7 @@
 class Ball
 {
     public:
-        Ball(SDL_Renderer* sdlRenderer,  char* File, double vx, double vy, int m);
+        Ball(SDL_Renderer* sdlRenderer,  char* File);
 
         SDL_Texture* Tex_Ball;
 
@@ -16,20 +16,27 @@ class Ball
         double bounceCoefficient;
         double x;
         double y;
+        int Width;
+        int Height;
         int mass;
+        double forceX;
+        double forceY;
+        static const double lightspeed = 10;
+
 
         void RenderBall(SDL_Renderer* sdlRenderer);
         void ApplyForce(double forceX,double forceY);
+        void ApplyAcceleration();
         void ApplyGravity();
         void ApplyFriction();
         void UpdateCoordinates();
         void OnBounce();
+        bool DetectCollision(const Ball& otherBall);
     private:
 
         double Gravitational_Acceleration;
 
-        int Width;
-        int Height;
+
 
 };
 

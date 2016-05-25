@@ -7,10 +7,14 @@
 *note: the first two lines are necessary
 */
 double CApp::SlowMotionValue = 1;
+int CApp::scrollModifierX = 0;
+int CApp::scrollModifierY = 0;
 CApp::CApp(){
     Main_Renderer = NULL;
     running = true;
     started = false;
+    mouseDown = false;
+    rightMouseDown = false;
 
 
 }
@@ -32,6 +36,7 @@ int CApp::OnExecute(){
 
     while(running){
         OnKeyState();
+        OnMouseState();
         while (SDL_PollEvent(&Event)){
             OnEvent(Event);
         }
@@ -49,6 +54,7 @@ double CApp::CalculateDistance(double x, double y, double x1, double y1){
     //Pythagoras theorem to calculate the distance
     return sqrt(pow((x - x1), 2)+ pow((y - y1), 2));
 }
+
 
 int main(int argc, char* argv[]){
     CApp theApp;

@@ -17,16 +17,23 @@ case SDL_MOUSEBUTTONDOWN:
         {
             case SDL_BUTTON_LEFT:
                 {
-              //for(int i = 0; i < 10; i++){
-                    Ball tempBall(Main_Renderer, "Ball2.png",0, 1, 10);
-                    BallAry.push_back(tempBall);
-              // }
+             // for(int i = 0; i < 10; i++){
+//                    SDL_Point tempPoint;
+//                    SDL_GetMouseState( &tempPoint.x, &tempPoint.y );
+//                    Ball tempBall(Main_Renderer, "Ball2.png");
+//                    BallAry.push_back(tempBall);
+             // }
             break;
                 }
             case SDL_BUTTON_RIGHT:
                 {
-            Ball negBall(Main_Renderer, "Ball2.png",0, -1, -10);
-            BallAry.push_back(negBall);
+//                    SDL_Point tempPoint;
+//                    SDL_GetMouseState( &tempPoint.x, &tempPoint.y );
+//                    Ball negBall(Main_Renderer, "BlueBall.png");
+//                    negBall.mass = -10;
+//                    negBall.x = tempPoint.x;
+//                    negBall.y = tempPoint.y;
+//                    BallAry.push_back(negBall);
                 }
 
             break;
@@ -34,6 +41,97 @@ case SDL_MOUSEBUTTONDOWN:
 break;
     }
 
+}
+void CApp::OnMouseState(){
+    int x;
+    int y;
+    if(SDL_GetMouseState(&x,&y) & SDL_BUTTON(SDL_BUTTON_LEFT)){
+
+        mouseDown = true;
+        Ball NewBall(Main_Renderer, "ball2.png");
+        NewBall.x = x - scrollModifierX;
+        NewBall.y = y - scrollModifierY;
+        NewBall.RenderBall(Main_Renderer);
+        SDL_RenderPresent(Main_Renderer);
+        int deltaX;
+        int deltaY;
+        double vX;
+        double vY;
+        while(mouseDown){
+            if(SDL_GetMouseState(&deltaX,&deltaY) & (SDL_BUTTON(SDL_BUTTON_LEFT))){
+                    mouseDown = true;
+            }
+            else{
+                mouseDown = false;
+            }
+                std::cout << "mouse down";
+            deltaX -= x;
+            deltaY -= y;
+            double distance = sqrt(pow(deltaX,2) + pow(deltaY,2));
+            double angle;
+            if(deltaX != 0){
+                angle = atan(deltaY / deltaX);
+            }
+             vX = cos(angle) * distance / 50;
+             vY = sin(angle) * distance / 50;
+
+            SDL_PumpEvents();
+        }
+        if(deltaX < 0){
+                vX *= -1;
+                vY *= -1;
+        }
+//        NewBall.x = x;
+//        NewBall.y = y;
+        NewBall.mass = 1;
+        std::cout << vX << "\n";
+
+        NewBall.velocityX = -vX;
+        NewBall.velocityY = -vY;
+        std::cout << NewBall.velocityY << "\n";
+        BallAry.push_back(NewBall);
+
+
+    }
+
+//    if(SDL_GetMouseState(&x,&y) & SDL_BUTTON(SDL_BUTTON_RIGHT)){
+//
+//        rightMouseDown = true;
+//        Ball NewBall(Main_Renderer, "blueBall.png");
+//        int deltaX;
+//        int deltaY;
+//        double velocityX;
+//        double velocityY;
+//        while(rightMouseDown){
+//            if(SDL_GetMouseState(&deltaX,&deltaY) & (SDL_BUTTON(SDL_BUTTON_RIGHT))){
+//                    rightMouseDown = true;
+//            }
+//                rightMouseDown = false;
+//            }
+//                std::cout << "mouse down";
+//            deltaX -= x;
+//            deltaY -= y;
+//            double distance = sqrt(pow(deltaX,2) + pow(deltaY,2));
+//            double angle;
+//            if(deltaX != 0){
+//                angle = atan(deltaY / deltaX);
+//            }
+//             velocityX = cos(angle) * distance / 100;
+//             velocityY = sin(angle) * distance / 100;
+//
+//            SDL_PumpEvents();
+//        }
+//        if(deltaX < 0){
+//                velocityX *= -1;
+//                velocityY *= -1;
+//        }
+//        NewBall.x = x;
+//        NewBall.y = y;
+//        NewBall.mass = -10;
+//        NewBall.velocityX = -velocityX;
+//        NewBall.velocityY = -velocityY;
+//        BallAry.push_back(NewBall);
+//    }
 }
 
 void CApp::OnKeyState() {
@@ -43,29 +141,23 @@ void CApp::OnKeyState() {
         running = false;
     }
     if(keystates[SDL_SCANCODE_RIGHT]){
-        for(int i = 0   ; i < BallAry.size(); i++){
-                    BallAry[i].ApplyForce(0.01,0);
-            }
+        OnScroll(-1,0);
     }
     if(keystates[SDL_SCANCODE_LEFT]){
-        for(int i = 0   ; i < BallAry.size(); i++){
-                    BallAry[i].ApplyForce(-0.01,0);
-            }
+        OnScroll(1,0);
     }
     if(keystates[SDL_SCANCODE_UP]){
-        for(int i = 0   ; i < BallAry.size(); i++){
-                    BallAry[i].ApplyForce(0,-0.005*10);
-            }
+        OnScroll(0,1);
     }
 
      if(keystates[SDL_SCANCODE_DOWN]){
-        for(int i = 0   ; i < BallAry.size(); i++){
-                    BallAry[i].ApplyForce(0,0.01);
-            }
+        OnScroll(0,-1);
     }
     if(keystates[SDL_SCANCODE_RETURN]){
         started = true;
+        std::cout << started;
     }
+
     if (keystates[SDL_SCANCODE_SPACE]){
         SlowMotionValue = 0.1;
     }

@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1463406383 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\ball.cpp
+1463988117 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\ball.cpp
 	"Ball.h"
 
-1463395827 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\ball.h
+1463844191 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\ball.h
 	"CApp.h"
 	"CTexture.h"
 	<iostream>
 
-1463405982 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\capp.h
+1464005831 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\capp.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -353,10 +353,10 @@
 1462628837 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_oncleanup.cpp
 	"CApp.h"
 
-1463413954 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onevent.cpp
+1464005880 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onevent.cpp
 	"CApp.h"
 
-1463414088 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_oninit.cpp
+1464005902 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_oninit.cpp
 	"CApp.h"
 
 1462637389 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onrender.cpp
@@ -366,7 +366,7 @@
 1462906582 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\circle.cpp
 	"Circle.h"
 
-1463132372 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\detectcirclecollision.cpp
+1463430285 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\detectcirclecollision.cpp
 	"CApp.h"
 
 1463166891 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\timer.cpp
@@ -377,13 +377,19 @@
 	<iostream>
 	<stdio.h>
 
-1463406353 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp.cpp
+1463842732 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp.cpp
 	"CApp.h"
 	<iostream>
 
-1463414108 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onloop.cpp
+1463862641 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onloop.cpp
 	"CApp.h"
 
-1463403188 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_gravitationbetweenobj.cpp
+1463658893 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_gravitationbetweenobj.cpp
+	"CApp.h"
+
+1463505316 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\ball_detectcollision.cpp
+	"Ball.h"
+
+1463841061 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\onscroll.cpp
 	"CApp.h"
 

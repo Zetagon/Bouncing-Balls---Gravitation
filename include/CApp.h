@@ -26,10 +26,12 @@ class CApp {
 private:
     bool    running;
     bool    started;
+    bool    mouseDown;
+    bool    rightMouseDown;
     SDL_Renderer* Main_Renderer;
     SDL_Window* window;
     Timer fpsTimer;
-    const double GRAVITATION_CONSTANT = 0.00001;
+    const double GRAVITATION_CONSTANT = 0.66743;
 
 
 
@@ -40,6 +42,8 @@ public:
 
         static SDL_Rect screen;
         static double SlowMotionValue;
+        static int scrollModifierX;
+        static int scrollModifierY;
 
 public:
      std::vector<class Ball> BallAry;
@@ -49,6 +53,7 @@ public:
 
     void OnEvent(SDL_Event Event);
     void OnKeyState();
+    void OnMouseState();
 
     void OnLoop();
 
@@ -61,6 +66,8 @@ public:
     double CalculateDistance(double x, double y, double x1, double y1);
 
     int GravitationBetweenObj(Ball& ballOne,  Ball& ballTwo);
+
+    void OnScroll(int x, int y);
 
 };
 

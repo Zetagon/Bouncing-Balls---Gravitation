@@ -1,6 +1,6 @@
 #include "Ball.h"
 
-Ball::Ball(SDL_Renderer* sdlRenderer, char* File, double vx, double vy, int m)
+Ball::Ball(SDL_Renderer* sdlRenderer, char* File)
 {
 //    double randvelocityX = rand(void) %200 / 100.0;
 //    double randvelocityY = rand(void) %200 / 100.0;
@@ -11,16 +11,18 @@ Ball::Ball(SDL_Renderer* sdlRenderer, char* File, double vx, double vy, int m)
 
     Width = 50;
     Height = 50;
-    mass = m;
-    velocityX = vx; //(rand() %300 -150) / 100.0;
-    velocityY =  vy;//(rand() %300 - 300) / 100.0;
+    mass = 100;
+    velocityX = 0; //(rand() %300 -150) / 100.0;
+    velocityY =  0;//(rand() %300 - 300) / 100.0;
+    forceX = 0;
+    forceY = 0;
     Gravitational_Acceleration = 0.005;
-    bounceCoefficient = 0.99;
-    SDL_GetMouseState( &tempX, &tempY );
-    x =   tempX;
-    y =   tempY;
-    x -= Width/2;
-    y -= Height/2;
+    bounceCoefficient = 0.9;
+//    SDL_GetMouseState( &tempX, &tempY );
+    x =   10;
+    y =   10;
+
+
 
     Tex_Ball = CTexture::OnLoadImage(File, sdlRenderer);
 
@@ -28,17 +30,32 @@ Ball::Ball(SDL_Renderer* sdlRenderer, char* File, double vx, double vy, int m)
 
 
 void Ball::RenderBall(SDL_Renderer* sdlRenderer){
-    SDL_Rect DestR = {round(x),round(y),Width, Height};
+    SDL_Rect DestR = {round(x - (Width/2.0)) + CApp::scrollModifierX ,round(y - (Height/ 2.0)) + CApp::scrollModifierY,Width, Height};
     CTexture::OnDraw(sdlRenderer,Tex_Ball,&DestR);
 }
 
-void Ball::ApplyForce(double forceX,double forceY){
+void Ball::ApplyForce(double fX,double fY){
+    forceX += fX;
+    forceY += fY;
+
+
+}
+
+void Ball::ApplyAcceleration(){
     double accX = forceX/mass;
     double accY = forceY/mass;
     velocityX += accX * CApp::SlowMotionValue;
     velocityY += accY * CApp::SlowMotionValue;
+//    if(velocityX > lightspeed)velocityX = 0.99 * lightspeed;
+//    if(velocityY > lightspeed)velocityY = 0.99 * lightspeed;
+    forceX = 0;
+    forceY = 0;
 
+    std::cout << forceX;
+    std::cout << velocityY << "\n";
 }
+
+
 
 void Ball::ApplyGravity(){
     ApplyForce(0,Gravitational_Acceleration * mass);

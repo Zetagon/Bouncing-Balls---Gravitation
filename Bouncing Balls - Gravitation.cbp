@@ -32,6 +32,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-g" />
 			<Add option="-fexceptions" />
 			<Add directory="C:/Users/leooka1ros/Documents/SDL/include" />
 			<Add directory="C:/mingw_dev_lib/SDL_Image/include/SDL2" />
@@ -52,6 +53,7 @@
 		<Unit filename="include/Circle.h" />
 		<Unit filename="include/Timer.h" />
 		<Unit filename="src/Ball.cpp" />
+		<Unit filename="src/Ball_DetectCollision.cpp" />
 		<Unit filename="src/CApp.cpp" />
 		<Unit filename="src/CApp_GravitationBetweenObj.cpp" />
 		<Unit filename="src/CApp_OnCleanup.cpp" />
@@ -62,6 +64,7 @@
 		<Unit filename="src/CTexture.cpp" />
 		<Unit filename="src/Circle.cpp" />
 		<Unit filename="src/DetectCircleCollision.cpp" />
+		<Unit filename="src/OnScroll.cpp" />
 		<Unit filename="src/Timer.cpp" />
 		<Extensions>
 			<code_completion />
