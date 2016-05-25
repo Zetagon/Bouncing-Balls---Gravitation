@@ -30,13 +30,22 @@ Ball::Ball(SDL_Renderer* sdlRenderer, char* File)
 
 
 void Ball::RenderBall(SDL_Renderer* sdlRenderer){
+    if(CApp::drawPath){
+        Point tempPoint(x , y);
+        pointAry.push_back(tempPoint);
+    }
+        for(int i = 0; i < pointAry.size(); i++){
+            pointAry[i].renderPoint(sdlRenderer);
+        }
+
     SDL_Rect DestR = {round(x - (Width/2.0)) + CApp::scrollModifierX ,round(y - (Height/ 2.0)) + CApp::scrollModifierY,Width, Height};
     CTexture::OnDraw(sdlRenderer,Tex_Ball,&DestR);
+
 }
 
 void Ball::ApplyForce(double fX,double fY){
-    forceX += fX;
-    forceY += fY;
+    forceX += fX  ;
+    forceY += fY  ;
 
 
 }
@@ -44,8 +53,8 @@ void Ball::ApplyForce(double fX,double fY){
 void Ball::ApplyAcceleration(){
     double accX = forceX/mass;
     double accY = forceY/mass;
-    velocityX += accX * CApp::SlowMotionValue;
-    velocityY += accY * CApp::SlowMotionValue;
+    velocityX += accX * pow(CApp::SlowMotionValue,2);
+    velocityY += accY * pow(CApp::SlowMotionValue,2);
 //    if(velocityX > lightspeed)velocityX = 0.99 * lightspeed;
 //    if(velocityY > lightspeed)velocityY = 0.99 * lightspeed;
     forceX = 0;

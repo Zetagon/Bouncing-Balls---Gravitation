@@ -2,6 +2,7 @@
 #define BALL_H
 #include "CApp.h"
 #include "CTexture.h"
+#include "Point.h"
 #include <iostream>
 
 class Ball
@@ -24,6 +25,7 @@ class Ball
         static const double lightspeed = 10;
 
 
+
         void RenderBall(SDL_Renderer* sdlRenderer);
         void ApplyForce(double forceX,double forceY);
         void ApplyAcceleration();
@@ -35,6 +37,7 @@ class Ball
     private:
 
         double Gravitational_Acceleration;
+        std::vector<class Point> pointAry;
 
 
 

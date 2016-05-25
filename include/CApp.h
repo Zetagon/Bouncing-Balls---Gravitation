@@ -28,6 +28,7 @@ private:
     bool    started;
     bool    mouseDown;
     bool    rightMouseDown;
+
     SDL_Renderer* Main_Renderer;
     SDL_Window* window;
     Timer fpsTimer;
@@ -44,6 +45,10 @@ public:
         static double SlowMotionValue;
         static int scrollModifierX;
         static int scrollModifierY;
+        static bool drawPath;
+
+
+
 
 public:
      std::vector<class Ball> BallAry;
@@ -68,6 +73,9 @@ public:
     int GravitationBetweenObj(Ball& ballOne,  Ball& ballTwo);
 
     void OnScroll(int x, int y);
+
+
+
 
 };
 

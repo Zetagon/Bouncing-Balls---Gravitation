@@ -9,12 +9,14 @@
 double CApp::SlowMotionValue = 1;
 int CApp::scrollModifierX = 0;
 int CApp::scrollModifierY = 0;
+bool CApp::drawPath = false;
 CApp::CApp(){
     Main_Renderer = NULL;
     running = true;
     started = false;
     mouseDown = false;
     rightMouseDown = false;
+    drawPath = false;
 
 
 }

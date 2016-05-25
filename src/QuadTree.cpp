@@ -3,6 +3,7 @@
 QuadTree::QuadTree()
 {
     //ctor
+
 }
 
 QuadTree::~QuadTree()

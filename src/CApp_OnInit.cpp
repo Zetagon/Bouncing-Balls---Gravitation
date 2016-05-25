@@ -27,8 +27,8 @@ bool CApp::OnInit() {
                           0)) == NULL) {
         return false;
     }
-    Main_Renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+    Main_Renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     Ball temp(Main_Renderer,"ball2.png");
     temp.mass = 9000;

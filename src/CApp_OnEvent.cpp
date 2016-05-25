@@ -164,6 +164,12 @@ void CApp::OnKeyState() {
     else{
          SlowMotionValue = 1;
     }
+    if(keystates[SDL_SCANCODE_TAB]){
+        drawPath = true;
+    }
+    else{
+        drawPath = false;
+    }
 
     SDL_PumpEvents();
 
