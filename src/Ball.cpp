@@ -21,6 +21,7 @@ Ball::Ball(SDL_Renderer* sdlRenderer, char* File)
 //    SDL_GetMouseState( &tempX, &tempY );
     x =   10;
     y =   10;
+    canMove = true;
 
 
 
@@ -29,39 +30,52 @@ Ball::Ball(SDL_Renderer* sdlRenderer, char* File)
 }
 
 
-void Ball::RenderBall(SDL_Renderer* sdlRenderer){
+void Ball::RenderBall(SDL_Renderer* sdlRenderer, SDL_Texture* pointDest, SDL_Texture* ballDest){
+//    if(CApp::drawPath){
+//        Point tempPoint(x , y);
+//        pointAry.push_back(tempPoint);
+//    }
+//        for(int i = 0; i < pointAry.size(); i++){
+//            pointAry[i].renderPoint(sdlRenderer);
+//        }
     if(CApp::drawPath){
-        Point tempPoint(x , y);
-        pointAry.push_back(tempPoint);
+        SDL_Rect tempRect;
+        tempRect.x = x;
+        tempRect.y = y;
+        tempRect.w = 1;
+        tempRect.h = 1;
+        SDL_SetRenderTarget(sdlRenderer, pointDest);//pointDest is the texture which to draw points on the positions that the ball has been on.
+        SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
+        SDL_RenderFillRect(sdlRenderer,&tempRect);
+
+        SDL_SetRenderDrawColor(sdlRenderer,255,255,255,255);
     }
-        for(int i = 0; i < pointAry.size(); i++){
-            pointAry[i].renderPoint(sdlRenderer);
-        }
+    SDL_SetRenderTarget(sdlRenderer, ballDest);
 
     SDL_Rect DestR = {round(x - (Width/2.0)) + CApp::scrollModifierX ,round(y - (Height/ 2.0)) + CApp::scrollModifierY,Width, Height};
     CTexture::OnDraw(sdlRenderer,Tex_Ball,&DestR);
-
+    SDL_SetRenderTarget(sdlRenderer, NULL);
 }
 
 void Ball::ApplyForce(double fX,double fY){
-    forceX += fX  ;
-    forceY += fY  ;
-
+    if(canMove){
+        forceX += fX  ;
+        forceY += fY  ;
+    }
 
 }
 
 void Ball::ApplyAcceleration(){
-    double accX = forceX/mass;
-    double accY = forceY/mass;
-    velocityX += accX * pow(CApp::SlowMotionValue,2);
-    velocityY += accY * pow(CApp::SlowMotionValue,2);
-//    if(velocityX > lightspeed)velocityX = 0.99 * lightspeed;
-//    if(velocityY > lightspeed)velocityY = 0.99 * lightspeed;
-    forceX = 0;
-    forceY = 0;
-
-    std::cout << forceX;
-    std::cout << velocityY << "\n";
+    if(canMove){
+        double accX = forceX/abs(mass);
+        double accY = forceY/abs(mass);
+        velocityX += accX * pow(CApp::SlowMotionValue,2);
+        velocityY += accY * pow(CApp::SlowMotionValue,2);
+    //    if(velocityX > lightspeed)velocityX = 0.99 * lightspeed;
+    //    if(velocityY > lightspeed)velocityY = 0.99 * lightspeed;
+        forceX = 0;
+        forceY = 0;
+    }
 }
 
 
@@ -71,8 +85,10 @@ void Ball::ApplyGravity(){
 }
 
 void Ball::UpdateCoordinates(){
-    x += velocityX * CApp::SlowMotionValue;
-    y += velocityY * CApp::SlowMotionValue;
+    if(canMove){
+        x += velocityX * CApp::SlowMotionValue;
+        y += velocityY * CApp::SlowMotionValue;
+    }
 }
 
 void Ball::ApplyFriction(){
@@ -90,9 +106,9 @@ void Ball::ApplyFriction(){
 }
 
 void Ball::OnBounce(){
-    if (y >= CApp::screen.h - 100){
+    if (y >= CApp::screen.h - Width){
         velocityY *= -bounceCoefficient;
-        y = CApp::screen.h -100;
+        y = CApp::screen.h -Height;
     }
     if (x >= CApp::screen.w){
         velocityX *= -bounceCoefficient;

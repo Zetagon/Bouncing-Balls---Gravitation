@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1464180845 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\ball.cpp
+1464962829 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\ball.cpp
 	"Ball.h"
 
-1464168765 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\ball.h
+1464338540 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\ball.h
 	"CApp.h"
 	"CTexture.h"
 	"Point.h"
 	<iostream>
 
-1464177444 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\capp.h
+1464865488 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\capp.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -354,13 +354,13 @@
 1462628837 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_oncleanup.cpp
 	"CApp.h"
 
-1464168699 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onevent.cpp
+1464963098 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onevent.cpp
 	"CApp.h"
 
-1464177466 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_oninit.cpp
+1464964104 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_oninit.cpp
 	"CApp.h"
 
-1462637389 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onrender.cpp
+1464865573 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onrender.cpp
 	"CApp.h"
 	<stdio.h>
 
@@ -373,16 +373,16 @@
 1463166891 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\timer.cpp
 	"Timer.h"
 
-1463331620 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\ctexture.cpp
+1464338635 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\ctexture.cpp
 	"CTexture.h"
 	<iostream>
 	<stdio.h>
 
-1464176954 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp.cpp
+1464596558 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp.cpp
 	"CApp.h"
 	<iostream>
 
-1463862641 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onloop.cpp
+1464964088 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_onloop.cpp
 	"CApp.h"
 
 1463658893 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\capp_gravitationbetweenobj.cpp
@@ -394,14 +394,14 @@
 1463841061 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\onscroll.cpp
 	"CApp.h"
 
-1464167808 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\point.h
-	"CApp.h"
+1464336035 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\point.h
 
-1464168370 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\point.cpp
-	"Point.h"
+1464336035 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\point.cpp
 
-1464168006 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\quadtree.cpp
+1465069686 source:c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\src\quadtree.cpp
 	"QuadTree.h"
 
-1464168006 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\quadtree.h
+1465069672 c:\users\leooka1ros\documents\c++projects\bouncing balls - gravitation\include\quadtree.h
+	<SDL.h>
+	"Ball.h"
 

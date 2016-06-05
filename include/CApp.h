@@ -46,6 +46,10 @@ public:
         static int scrollModifierX;
         static int scrollModifierY;
         static bool drawPath;
+        double zoomModifier;
+        const double MAX_ZOOM = 3;
+        SDL_Texture* pointTex;//The texture to draw points where the balls have been
+        SDL_Texture* ballTex;//The texture to draw the balls
 
 
 

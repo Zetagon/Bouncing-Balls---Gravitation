@@ -6,7 +6,7 @@
 *
 *note: the first two lines are necessary
 */
-double CApp::SlowMotionValue = 1;
+double CApp::SlowMotionValue = 0;
 int CApp::scrollModifierX = 0;
 int CApp::scrollModifierY = 0;
 bool CApp::drawPath = false;
@@ -17,6 +17,8 @@ CApp::CApp(){
     mouseDown = false;
     rightMouseDown = false;
     drawPath = false;
+    zoomModifier = MAX_ZOOM-1;
+
 
 
 }

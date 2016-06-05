@@ -27,31 +27,44 @@ case SDL_MOUSEBUTTONDOWN:
                 }
             case SDL_BUTTON_RIGHT:
                 {
-//                    SDL_Point tempPoint;
-//                    SDL_GetMouseState( &tempPoint.x, &tempPoint.y );
-//                    Ball negBall(Main_Renderer, "BlueBall.png");
-//                    negBall.mass = -10;
-//                    negBall.x = tempPoint.x;
-//                    negBall.y = tempPoint.y;
-//                    BallAry.push_back(negBall);
+                    SDL_Point tempPoint;
+                    SDL_GetMouseState( &tempPoint.x, &tempPoint.y );
+                    Ball negBall(Main_Renderer, "BlueBall.png");
+                    negBall.mass = -100;
+                    negBall.x = tempPoint.x;
+                    negBall.y = tempPoint.y;
+                    BallAry.push_back(negBall);
                 }
 
             break;
         }
 break;
+            case SDL_MOUSEWHEEL:
+
+                zoomModifier += Event.wheel.y/100.0;
+                if(zoomModifier < 0) zoomModifier = 0;
+//                if(zoomModifier > MAX_ZOOM)zoomModifier = 2.0;
+                std::cout << zoomModifier << "\n";
+            break;
     }
 
 }
 void CApp::OnMouseState(){
-    int x;
-    int y;
+    int x = 0;
+    int y = 0;
     if(SDL_GetMouseState(&x,&y) & SDL_BUTTON(SDL_BUTTON_LEFT)){
 
         mouseDown = true;
         Ball NewBall(Main_Renderer, "ball2.png");
+        //adapts the balls x coordinate to fit the screen when zooming, not finished
+//        double percX =  (double)(screen.w + (screen.w * zoomModifier))/screen.w;
+//        double percY =  (double)(screen.h + (screen.h * zoomModifier)) / screen.h;
+//        x = (double)x * percX;
+//        y = (double)y * percY;
+
         NewBall.x = x - scrollModifierX;
         NewBall.y = y - scrollModifierY;
-        NewBall.RenderBall(Main_Renderer);
+        NewBall.RenderBall(Main_Renderer, pointTex, ballTex);
         SDL_RenderPresent(Main_Renderer);
         int deltaX;
         int deltaY;
@@ -83,8 +96,9 @@ void CApp::OnMouseState(){
         }
 //        NewBall.x = x;
 //        NewBall.y = y;
-        NewBall.mass = 1;
-        std::cout << vX << "\n";
+        NewBall.mass = 100;
+
+
 
         NewBall.velocityX = -vX;
         NewBall.velocityY = -vY;
@@ -140,18 +154,18 @@ void CApp::OnKeyState() {
     if (keystates[SDL_SCANCODE_ESCAPE]){
         running = false;
     }
-    if(keystates[SDL_SCANCODE_RIGHT]){
-        OnScroll(-1,0);
+    if(keystates[SDL_SCANCODE_D]){
+        OnScroll(-10,0);
     }
-    if(keystates[SDL_SCANCODE_LEFT]){
-        OnScroll(1,0);
+    if(keystates[SDL_SCANCODE_A]){
+        OnScroll(10,0);
     }
-    if(keystates[SDL_SCANCODE_UP]){
-        OnScroll(0,1);
+    if(keystates[SDL_SCANCODE_W]){
+        OnScroll(0,10);
     }
 
-     if(keystates[SDL_SCANCODE_DOWN]){
-        OnScroll(0,-1);
+     if(keystates[SDL_SCANCODE_S]){
+        OnScroll(0,-10);
     }
     if(keystates[SDL_SCANCODE_RETURN]){
         started = true;
@@ -169,6 +183,11 @@ void CApp::OnKeyState() {
     }
     else{
         drawPath = false;
+    }
+    if(keystates[SDL_SCANCODE_BACKSPACE]){
+        for(int i = 0; i < BallAry.size(); i++){
+            BallAry.erase(BallAry.begin() + i);
+        }
     }
 
     SDL_PumpEvents();

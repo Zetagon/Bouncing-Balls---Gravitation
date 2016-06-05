@@ -22,11 +22,12 @@ class Ball
         int mass;
         double forceX;
         double forceY;
+        bool canMove;
         static const double lightspeed = 10;
 
 
 
-        void RenderBall(SDL_Renderer* sdlRenderer);
+        void RenderBall(SDL_Renderer* sdlRenderer, SDL_Texture* pointDest, SDL_Texture* ballDest);
         void ApplyForce(double forceX,double forceY);
         void ApplyAcceleration();
         void ApplyGravity();
@@ -37,7 +38,7 @@ class Ball
     private:
 
         double Gravitational_Acceleration;
-        std::vector<class Point> pointAry;
+
 
 
 

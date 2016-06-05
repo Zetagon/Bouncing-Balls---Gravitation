@@ -1,33 +1,30 @@
 #ifndef QUADTREE_H
 #define QUADTREE_H
-
-
+#include <SDL.h>
+#include "Ball.h"
 class QuadTree
 {
     public:
-        QuadTree();
+        QuadTree(int pLevel, SDL_Rect pBounds);
         virtual ~QuadTree();
-
-        QuadTree* Getnode1() { return node1; }
-        void Setnode1(QuadTree* val) { node1 = val; }
-        QuadTree* Getnode2() { return node2; }
-        void Setnode2(QuadTree* val) { node2 = val; }
-        QuadTree* Getnode3() { return node3; }
-        void Setnode3(QuadTree* val) { node3 = val; }
-        QuadTree* Getnode4() { return node4; }
-        void Setnode4(QuadTree* val) { node4 = val; }
-        const int GetMAX_OBJ() { return MAX_OBJ; }
+        void insertObj(SDL_Rect pRect);
 
 
-        QuadTree* node1;
-        QuadTree* node2;
-        QuadTree* node3;
-        QuadTree* node4;
-        const int MAX_OBJ =  5;
+        void clear();
+
 
     protected:
 
     private:
+        void split();
+        int getIndex(SDL_Rect pRect);
+
+        std::vector<QuadTree*> nodes;
+        std::vector<Ball*>  objects;
+        SDL_Rect bounds;
+        int level;
+        const int MAX_OBJ =  10;
+        const int MAX_LEVEL = 5;
 };
 
 #endif // QUADTREE_H

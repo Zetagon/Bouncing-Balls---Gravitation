@@ -18,7 +18,7 @@ for(int i = 0   ; i < BallAry.size(); i++){
 
 
         }
-       // BallAry[i].OnBounce();
+//        BallAry[i].OnBounce();
         //BallAry[i].ApplyGravity();
 
         BallAry[i].ApplyAcceleration();
@@ -26,6 +26,6 @@ for(int i = 0   ; i < BallAry.size(); i++){
 
 
 }
-    std::cout << "FPS" << fpsTimer.CalculateFPS() << "\n";
+//    std::cout << "FPS" << fpsTimer.CalculateFPS() << "\n";
 //    std::cout << BallAry.size() << "\n";
 }
