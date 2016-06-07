@@ -96,7 +96,7 @@ void CApp::OnMouseState(){
         }
 //        NewBall.x = x;
 //        NewBall.y = y;
-        NewBall.mass = 100;
+        NewBall.mass = 10000;
 
 
 

@@ -7,11 +7,14 @@
 //#include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include <memory>
+
 
 #include "CTexture.h"
 #include "Ball.h"
 #include "Circle.h"
 #include "Timer.h"
+#include "QuadTree.h"
 /**
 *
 *This is a template. Use it to make games with SDL
@@ -50,7 +53,7 @@ public:
         const double MAX_ZOOM = 3;
         SDL_Texture* pointTex;//The texture to draw points where the balls have been
         SDL_Texture* ballTex;//The texture to draw the balls
-
+        std::unique_ptr<QuadTree> ballTree ;
 
 
 

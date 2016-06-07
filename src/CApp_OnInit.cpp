@@ -1,5 +1,5 @@
 #include "CApp.h"
-
+#include "QuadTree.h"
 /**
 *
 *Initialize SDL, SDL_window, SDL_renderer,images etc.
@@ -52,6 +52,11 @@ bool CApp::OnInit() {
     SDL_RenderClear(Main_Renderer);
     SDL_SetRenderTarget(Main_Renderer, NULL);
 
+    //initializes the quadtree
+    SDL_Rect treeRect = {0,0,screen.w * MAX_ZOOM, screen.h * MAX_ZOOM};
+//    QuadTree tempTree(0,treeRect);
+//    ballTree = &tempTree;//new QuadTree(0, treeRect);
+    ballTree = std::unique_ptr<QuadTree>(new QuadTree(0, treeRect));
 
     Ball temp(Main_Renderer,"ball2.png");
     temp.mass = 9000;
@@ -59,7 +64,7 @@ bool CApp::OnInit() {
     temp.y = screen.h / 2.0;
     temp.canMove = true;
 
-    BallAry.push_back(temp);
+   // BallAry.push_back(temp);
 
 //    temp.mass = 9000;
 //    temp.x = 300;

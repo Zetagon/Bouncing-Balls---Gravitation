@@ -23,7 +23,7 @@ class Ball
         double forceX;
         double forceY;
         bool canMove;
-        static const double lightspeed = 10;
+        static constexpr double lightspeed = 10;
 
 
 
