@@ -64,7 +64,7 @@ bool CApp::OnInit() {
     temp.y = screen.h / 2.0;
     temp.canMove = true;
 
-   // BallAry.push_back(temp);
+    BallAry.push_back(temp);
 
 //    temp.mass = 9000;
 //    temp.x = 300;

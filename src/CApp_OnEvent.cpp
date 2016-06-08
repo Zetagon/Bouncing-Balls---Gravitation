@@ -96,7 +96,7 @@ void CApp::OnMouseState(){
         }
 //        NewBall.x = x;
 //        NewBall.y = y;
-        NewBall.mass = 10000;
+        NewBall.mass = 100;
 
 
 
@@ -188,6 +188,27 @@ void CApp::OnKeyState() {
         for(int i = 0; i < BallAry.size(); i++){
             BallAry.erase(BallAry.begin() + i);
         }
+    }
+    if(keystates[SDL_SCANCODE_UP]){
+        for(int i = 0   ; i < BallAry.size(); i++){
+                    BallAry[i].ApplyForce(0,-10);
+        }
+    }
+    if(keystates[SDL_SCANCODE_DOWN]){
+        for(int i = 0   ; i < BallAry.size(); i++){
+                    BallAry[i].ApplyForce(0,10);
+                    std::cout<< "down";
+            }
+    }
+    if(keystates[SDL_SCANCODE_RIGHT]){
+        for(int i = 0   ; i < BallAry.size(); i++){
+                    BallAry[i].ApplyForce(10,0);
+            }
+    }
+    if(keystates[SDL_SCANCODE_LEFT]){
+        for(int i = 0   ; i < BallAry.size(); i++){
+                    BallAry[i].ApplyForce(-10,0);
+            }
     }
 
     SDL_PumpEvents();
